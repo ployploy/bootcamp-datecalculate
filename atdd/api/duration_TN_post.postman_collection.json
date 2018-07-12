@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "4a84b206-8b2b-43ab-8747-1fc74bf2c30e",
+		"name": "duration_TN_post",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "input_7_3_1977_and_12_7_2018_post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ab66cc52-cad9-4725-8e48-18d045f56b1b",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"From and including\", function () {",
+							"    var duration = pm.response.json();",
+							"    pm.expect(duration.FromAndInc).to.eql(\"Monday, 7 March 1977\");",
+							"});",
+							"",
+							"pm.test(\"To and including\", function () {",
+							"    var duration = pm.response.json();",
+							"    pm.expect(duration.ToAndInc).to.eql(\"Thursday, 12 July 2018\");",
+							"});",
+							"",
+							"pm.test(\"Result\", function () {",
+							"    var duration = pm.response.json();",
+							"    pm.expect(duration.Result).to.eql(\"15,103 days\");",
+							"});",
+							"",
+							"pm.test(\"Alt Result\", function () {",
+							"    var duration = pm.response.json();",
+							"    pm.expect(duration.AltResult).to.eql(\"41 years, 4 months, 6 days\");",
+							"});",
+							"",
+							"pm.test(\"Seconds\", function () {",
+							"    var duration = pm.response.json();",
+							"    pm.expect(duration.Seconds).to.eql(\"1,304,899,200 seconds\");",
+							"});",
+							"",
+							"pm.test(\"Minutes\", function () {",
+							"    var duration = pm.response.json();",
+							"    pm.expect(duration.Minutes).to.eql(\"21,748,320 minutes\");",
+							"});",
+							"",
+							"pm.test(\"Hours\", function () {",
+							"    var duration = pm.response.json();",
+							"    pm.expect(duration.Hours).to.eql(\"362,472 hours\");",
+							"});",
+							"",
+							"pm.test(\"Week\", function () {",
+							"    var duration = pm.response.json();",
+							"    pm.expect(duration.Weeks).to.eql(\"2,157 weeks & 4 days\");",
+							"});",
+							"",
+							"pm.test(\"Common year\", function () {",
+							"    var duration = pm.response.json();",
+							"    pm.expect(duration.CommonYear).to.eql(\"4,137.81%\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"start_day\" : \"7\",\n\t\"start_month\" : \"3\",\n\t\"start_year\" : \"1977\",\n\t\"end_day\" : \"12\",\n\t\"end_month\" : \"7\",\n\t\"end_year\" : \"2018\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/date/duration?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"date",
+						"duration"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "h",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,129 @@
+{
+	"info": {
+		"_postman_id": "93e6784e-76d7-473b-8d21-8b950afed7fe",
+		"name": "duration_TN_get",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "input_7_4_1977_and_12_7_2018_get",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7e0e7a0d-e7d7-4175-8344-a06d23a41292",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"From\", function () {",
+							"    var duration = pm.response.json();",
+							"    pm.expect(duration.From).to.eql(\"Monday, 7 March 1977\");",
+							"});",
+							"",
+							"pm.test(\"To\", function () {",
+							"    var duration = pm.response.json();",
+							"    pm.expect(duration.To).to.eql(\"Thursday, 12 July 2018\");",
+							"});",
+							"",
+							"pm.test(\"Result day\", function () {",
+							"    var duration = pm.response.json();",
+							"    pm.expect(duration.resultDay).to.eql(\"15,103 days\");",
+							"});",
+							"",
+							"pm.test(\"Result all : year\", function () {",
+							"    var duration = pm.response.json();",
+							"    pm.expect(duration.resultAll.years).to.eql(\"41\");",
+							"});",
+							"pm.test(\"Result all : month\", function () {",
+							"    var duration = pm.response.json();",
+							"    pm.expect(duration.resultAll.months).to.eql(\"4\");",
+							"});",
+							"pm.test(\"Result all : day\", function () {",
+							"    var duration = pm.response.json();",
+							"    pm.expect(duration.resultAll.days).to.eql(\"6\");",
+							"});",
+							"",
+							"pm.test(\"Seconds\", function () {",
+							"    var duration = pm.response.json();",
+							"    pm.expect(duration.seconds).to.eql(\"1,304,899,200\");",
+							"});",
+							"",
+							"pm.test(\"Minutes\", function () {",
+							"    var duration = pm.response.json();",
+							"    pm.expect(duration.minutes).to.eql(\"21,748,320\");",
+							"});",
+							"",
+							"pm.test(\"Hours\", function () {",
+							"    var duration = pm.response.json();",
+							"    pm.expect(duration.hours).to.eql(\"362,472\");",
+							"});",
+							"",
+							"pm.test(\"Week\", function () {",
+							"    var duration = pm.response.json();",
+							"    pm.expect(duration.weeks.weeks).to.eql(\"2157\");",
+							"});",
+							"pm.test(\"Day\", function () {",
+							"    var duration = pm.response.json();",
+							"    pm.expect(duration.weeks.days).to.eql(\"4\");",
+							"});",
+							"",
+							"pm.test(\"Year\", function () {",
+							"    var duration = pm.response.json();",
+							"    pm.expect(duration.year).to.eql(\"4137.81%\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3000/date/duration?startDate=7/3/1977&endDate=12/7/2018",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"date",
+						"duration"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "7/3/1977"
+						},
+						{
+							"key": "endDate",
+							"value": "12/7/2018"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "79cb33a5-31ce-466f-96aa-1564de101760",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "7109928f-e940-4b83-99c7-c633dea00328",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
