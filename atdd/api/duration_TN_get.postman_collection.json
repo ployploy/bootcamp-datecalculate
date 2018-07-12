@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "input_7_4_1977_and_12_7_2018_get",
+			"name": "input_7_3_1977_and_12_7_2018_get",
 			"event": [
 				{
 					"listen": "test",
@@ -26,7 +26,7 @@
 							"",
 							"pm.test(\"Result day\", function () {",
 							"    var duration = pm.response.json();",
-							"    pm.expect(duration.resultDay).to.eql(\"15,103 days\");",
+							"    pm.expect(duration.resultDay).to.eql(\"15103 days\");",
 							"});",
 							"",
 							"pm.test(\"Result all : year\", function () {",
