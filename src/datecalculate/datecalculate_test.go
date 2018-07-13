@@ -9,7 +9,8 @@ func Test_MakeJson_Input_StartDate_7_3_1977_EndDate_12_7_2018_Should_Be_Return_D
 	startdate := "07031977"
 	enddate := "12072018"
 	expected := Duration{
-		Days: "15103 days",
+		Days:    "15103 days",
+		Seconds: "1304899200",
 	}
 
 	actual := MakeJson(startdate, enddate)
@@ -62,4 +63,14 @@ func Test_FormatDate_Input_07031977_ShouldBe_Monday_7_March_1977(t *testing.T) {
 	if actualDate != expected {
 		t.Errorf("expected %s but got %s", expected, actualDate)
 	}
+}
+
+func TestCalculateSecond15103Shouldbe1304899200(t *testing.T) {
+	days := 15103
+	expected := "1304899200"
+	actual := CalculateSecond(days)
+	if expected != actual {
+		t.Errorf("Expected: %s Actual: %s", expected, actual)
+	}
+
 }

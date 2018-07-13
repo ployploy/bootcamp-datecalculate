@@ -7,16 +7,21 @@ import (
 )
 
 type Duration struct {
-	// From    string `json:"from"`
-	// To      string `json:"to"`
+	// From        string `json:"From"`
+	// To          string `json:"To"`
 	Days string `json:"resultDay"`
-	// Seconds string `json:"seconds"`
-	// Minutes string `json:"minutes"`
-	// Hours   string `json:"hours"`
+	// Year        string `json:"resultAll.years"`
+	Seconds string `json:"seconds"`
+	// Minutes     string `json:"minutes"`
+	// Hours       string `json:"hours"`
+	// Weeks       string `json:"weeks.week"`
+	// CommonYears string `json:"year"`
 }
 
 func MakeJson(startDate, endDate string) Duration {
 	totalDay := CalculateDay(startDate, endDate)
+	seconds := CalculateSecond(totalDay)
+
 	// hours := TransformDaysToHour(totalDay)
 	// minutes := TransformHoursToMinutes(hours)
 	// seconds := TransformMinutesToSeconds(minutes)
@@ -25,8 +30,8 @@ func MakeJson(startDate, endDate string) Duration {
 	return Duration{
 		// From:    TransformDateToFullDate(startDay, startMonth, startYear),
 		// To:      TransformDateToFullDate(endDay, endMonth, endYear),
-		Days: fmt.Sprintf("%d %s", totalDay, "days"),
-		// Seconds: secondsResult,
+		Days:    fmt.Sprintf("%d %s", totalDay, "days"),
+		Seconds: seconds,
 		// Minutes: fmt.Sprintf("%s %s", AddComma(minutes), "minutes"),
 		// Hours:   fmt.Sprintf("%s %s", AddComma(hours), "hours"),
 	}
@@ -68,4 +73,9 @@ func RemoveSlashFromStringDate(date string) string {
 	var day, month, year int
 	fmt.Sscanf(date, "%d/%d/%d", &day, &month, &year)
 	return fmt.Sprintf("%02d%02d%d", day, month, year)
+}
+
+func CalculateSecond(days int) string {
+	seconds := strconv.Itoa(days * 24 * 60 * 60)
+	return seconds
 }
