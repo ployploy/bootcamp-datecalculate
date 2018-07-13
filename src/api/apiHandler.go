@@ -7,7 +7,8 @@ import (
 )
 
 type Duration struct {
-	Days string `json:"resultDay"`
+	Days    string `json:"resultDay"`
+	Seconds string `json:"seconds"`
 }
 
 func ApiCalculateDate(responseWriter http.ResponseWriter, request *http.Request) {
