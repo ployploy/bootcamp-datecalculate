@@ -44,7 +44,7 @@
 							"",
 							"pm.test(\"Seconds\", function () {",
 							"    var duration = pm.response.json();",
-							"    pm.expect(duration.seconds).to.eql(\"1,304,899,200\");",
+							"    pm.expect(duration.seconds).to.eql(\"1304899200\");",
 							"});",
 							"",
 							"pm.test(\"Minutes\", function () {",
